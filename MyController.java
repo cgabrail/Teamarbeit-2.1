@@ -11,8 +11,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-
-public class MyController implements ActionListener, IGame{
+//Der Controller enthält auch ein par Logikfunktionen 
+public class MyController implements ActionListener, IGame{		//ActionListener wird implementiert
 	private MyPanel p = new MyPanel(this);
 	private MyFrame f = new MyFrame(p);
 	public MyController(){
@@ -20,17 +20,17 @@ public class MyController implements ActionListener, IGame{
 	}
 
 	public void actionPerformed(ActionEvent e){
-		if(e.getActionCommand().equals("Solve")){
+		if(e.getActionCommand().equals("Solve")){			//Wenn man auf den Button "solve" klickt, dann wird die Methode "solve" ausgeführt.
 			solve();
 		}
-		if(e.getActionCommand().equals("Restart")){
+		if(e.getActionCommand().equals("Restart")){			//Wenn man auf den Button "restart" klickt, dann wird die Methode "restart" ausgeführt.
 			restart();
 		}
-		else if(e.getActionCommand().equals("Exit")){
+		else if(e.getActionCommand().equals("Exit")){		//Wenn man auf den Button "exit" klickt, dann wird das Programm geschlossen.
 			f.dispose();
 		}
-		JButton xyz= new JButton();
-		xyz=(JButton)e.getSource();
+		JButton xyz= new JButton();						
+		xyz=(JButton)e.getSource();							
 		System.out.println(xyz.getText());
 		p.change(xyz.getText());
 	}
@@ -40,15 +40,15 @@ public class MyController implements ActionListener, IGame{
 		
 	}
 
-	public void restart(){
-		for(int i =1; i<26;i++){
-			p.getButton(i).setBackground(Color.white);
+	public void restart(){									//hier werden die Methoden "restart" und "solve" erstellt. Die Farben werden hier eingestellt.
+		for(int i =1; i<26;i++){							//Die Anfangsfarbe wird eingestellt. Wenn man auf "restart" klickt, wird eine zufällig große Anzahl von Buttons rot gefärbt. 
+			p.getButton(i).setBackground(Color.white);		
 		}
 		for(int i = 1; i <(int)(Math.random()*26); i++){
 			p.getButton((int)(Math.random()*26)).setBackground(Color.red);}
 	}
 
-	public void solve(){
+	public void solve(){								//hier wird die Farbe eingestellt, die die Buttons beim anklicken von solve haben.
 		for(int i = 1; i < 26; i++){
 			p.getButton(i).setBackground(Color.white);
 		}

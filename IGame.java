@@ -4,7 +4,7 @@
  * 
  */
 package gabrail;
-
+// Interface 
 public interface IGame {
 	public void initial();
 	public void retstart();
