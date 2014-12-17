@@ -82,6 +82,10 @@ public class MyPanel extends JPanel{
 	public void change(String text){
 		System.out.println(text);
 		b[Integer.parseInt(text)].setBackground(Color.white);
+		b[Integer.parseInt(text)-1].setBackground(Color.white);
+		b[Integer.parseInt(text)+1].setBackground(Color.white);
+		b[Integer.parseInt(text)+5].setBackground(Color.white);
+		b[Integer.parseInt(text)-5].setBackground(Color.white);
 	}
 
 

@@ -41,8 +41,11 @@ public class MyController implements ActionListener, IGame{
 	}
 
 	public void restart(){
-		for(int i = 1; i < 26; i++){
-			p.getButton(i).setBackground(Color.red);}
+		for(int i =1; i<26;i++){
+			p.getButton(i).setBackground(Color.white);
+		}
+		for(int i = 1; i <(int)(Math.random()*26); i++){
+			p.getButton((int)(Math.random()*26)).setBackground(Color.red);}
 	}
 
 	public void solve(){
