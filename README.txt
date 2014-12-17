@@ -1,5 +1,5 @@
 Gruppenarbeit 2.1
 
-Gabrail : View & Testklasse
-Wojdyla : Controller
-Weinauer : Model
+Gabrail : MyPanel & Testklasse
+Wojdyla : MyController & IGame
+Weinauer : MyFrame & Readme
