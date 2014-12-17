@@ -6,8 +6,11 @@
 package gabrail;
 
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 
 public class MyController implements ActionListener, IGame{
 	private MyPanel p = new MyPanel(this);
@@ -26,6 +29,10 @@ public class MyController implements ActionListener, IGame{
 		else if(e.getActionCommand().equals("Exit")){
 			f.dispose();
 		}
+		JButton xyz= new JButton();
+		xyz=(JButton)e.getSource();
+		System.out.println(xyz.getText());
+		p.change(xyz.getText());
 	}
 
 	public void initial1(){
@@ -34,13 +41,13 @@ public class MyController implements ActionListener, IGame{
 	}
 
 	public void restart(){
-		for(int i = 0; i < 16; i++){
-			p.getButton(i).setEnabled(true);}
+		for(int i = 1; i < 26; i++){
+			p.getButton(i).setBackground(Color.red);}
 	}
 
 	public void solve(){
-		for(int i = 0; i < 16; i++){
-			p.getButton(i).setEnabled(false);
+		for(int i = 1; i < 26; i++){
+			p.getButton(i).setBackground(Color.white);
 		}
 	}
 

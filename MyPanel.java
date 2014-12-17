@@ -6,13 +6,17 @@
 package gabrail;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
 import java.awt.GridLayout;
 import java.awt.LayoutManager;
+
 import javax.swing.BoxLayout;
 
 
@@ -20,12 +24,11 @@ public class MyPanel extends JPanel{
 	private JLabel l2;
 	private MyController c;
 	private JPanel p1, p2, p3;
-	private JButton[] b = new JButton[16];
+	private JButton[] b = new JButton[26];
 	private JButton[] b2 = new JButton[3];
 	private JLabel[] l= new JLabel[5];
 	
 	public MyPanel(MyController c){
-		this.c =new MyController();
 		this.setLayout(new BorderLayout());
 		pinit();
 		linit();
@@ -39,7 +42,7 @@ public class MyPanel extends JPanel{
 		p2 = new JPanel();
 		p3 = new JPanel();
 		p1.setLayout(new BoxLayout(p1, BoxLayout.Y_AXIS));
-		p2.setLayout(new GridLayout(4,4));
+		p2.setLayout(new GridLayout(5,5));
 		p3.setLayout(new BoxLayout(p3, BoxLayout.X_AXIS));
 		this.add(p2, BorderLayout.CENTER);
 		this.add(p1, BorderLayout.WEST);
@@ -47,19 +50,19 @@ public class MyPanel extends JPanel{
 	}
 	private void linit(){
 		for(int i = 0; i < 5; i++)	{
-			//l[i] = new JLabel("my simple game");
+			l[i] = new JLabel(" ");
 			l[i].setPreferredSize(new Dimension(50, 80));
 			p1.add(l[i]);
 		}
-		l2 = new JLabel("Find the correct sequence: Start with 0!");
-		this.add(l2, BorderLayout.NORTH);
 	}
 	private void binit(MyController c){
-		for(int i = 0; i < 16; i++)	{
+		for(int i = 1; i < 26; i++)	{
 			b[i] = new JButton(""+i);
-			//b[i].addActionListener(this.c);
+			b[i].addActionListener(c);
+			b[i].setBackground(Color.red);
 			p2.add(b[i]);
 		}
+		
 		b2[0] = new JButton("Solve");
 		b2[0].addActionListener(c);
 		b2[1] = new JButton("Restart");
@@ -76,5 +79,11 @@ public class MyPanel extends JPanel{
 	public JButton getButton(int i){
 		return b[i];
 	}
+	public void change(String text){
+		System.out.println(text);
+		b[Integer.parseInt(text)].setBackground(Color.white);
+	}
+
+
 }
 
